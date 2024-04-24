@@ -28,9 +28,7 @@ class LoginViewModel: ObservableObject {
     func enterButtonAction() {
         debugPrint(username)
         debugPrint(password)
-        DispatchQueue.main.async {
-            self.canContinue = true
-        }
+        loginRequestProtocol.login(username: username, password: password) { _ in }
     }
 }
 
@@ -51,8 +49,8 @@ public struct LoginRequest: LoginRequestProtocol {
         urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         let parameters = ["client_id": "camp-ioasys-2024",
                           "client_secret": "BiKzHxr9ZoZRDlLjx6qG7QfnDhIoQdIf",
-                          "username": "username",
-                          "password": "tph4hyk!BZC2txm*mcb",
+                          "username": "\(username)",
+                          "password": "\(password)",
                           "grant_type": "password"]
         let formParameters = parameters.map { (key, value) in
             return "\(key)=\(value)"
@@ -73,11 +71,16 @@ public struct LoginRequest: LoginRequestProtocol {
         }
         .resume()
     }
+
 }
 
 public struct LoginResponse: Decodable {
 
-    let access_token: String
+    let token: String
+
+    enum CodingKeys: String, CodingKey {
+        case token = "access_token"
+    }
 }
 
 public enum LoginError: Error {
