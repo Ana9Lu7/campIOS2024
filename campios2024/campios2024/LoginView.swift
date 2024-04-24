@@ -7,54 +7,77 @@
 
 import SwiftUI
 
+//struct LoginView: View {
+//
+//    @State private var navigate = false
+//
+//    var body: some View {
+//        NavigationStack {
+//            VStack {
+//                Button("Test Navigation") {
+//                    navigate = true
+//                }
+//                .navigationDestination(isPresented: $navigate) {
+//                    Text("Navigated")
+//                }
+//            }
+//        }
+//    }
+//}
+
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack {
-                VStack(spacing: 16) {
-                    Text("Seja bem vind@!")
-                        .foregroundStyle(.white)
-                        .font(.largeTitle)
-                    Text("HTTP Status Code")
-                        .foregroundStyle(.white)
-                        .font(.title)
-                }
-                .padding(.bottom, 48)
-                VStack(spacing: 16) {
-                    InputLoginView(
-                        input: $viewModel.username,
-                        textFieldValue: "usuario"
-                    )
-                    InputLoginView(
-                        input: $viewModel.password,
-                        textFieldValue: "senha"
-                    )
-                }
-                .padding(.bottom, 32)
-                Button {
-                    viewModel.enterButtonAction()
-                } label: {
-                    ZStack {
-                        Capsule()
-                            .fill(.black)
-                            .frame(height: 48)
-                        Text("ENTRAR")
+        NavigationStack {
+            ZStack(alignment: .top) {
+                VStack {
+                    VStack(spacing: 16) {
+                        Text("Seja bem vind@!")
                             .foregroundStyle(.white)
+                            .font(.largeTitle)
+                        Text("HTTP Status Code")
+                            .foregroundStyle(.white)
+                            .font(.title)
                     }
+                    .padding(.bottom, 48)
+                    VStack(spacing: 16) {
+                        InputLoginView(
+                            input: $viewModel.username,
+                            textFieldValue: "usuario"
+                        )
+                        InputLoginView(
+                            input: $viewModel.password,
+                            textFieldValue: "senha"
+                        )
+                    }
+                    .padding(.bottom, 32)
+                    Button {
+                        viewModel.enterButtonAction()
+                    } label: {
+                        ZStack {
+                            Capsule()
+                                .fill(.black)
+                                .frame(height: 48)
+                            Text("ENTRAR")
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    .navigationDestination(isPresented: $viewModel.canContinue) {
+                        HomeView()
+                    }
+                    .padding(.horizontal, 16)
                 }
-                .padding(.horizontal, 16)
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity
+                )
+                .background(
+                    Color("backgroundColor")
+                )
+                Image("logo")
             }
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity
-            )
-            .background(
-                Color("backgroundColor")
-            )
-            Image("logo")
         }
     }
 }

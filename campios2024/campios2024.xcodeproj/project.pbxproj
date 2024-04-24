@@ -16,6 +16,7 @@
 		330C23C02BD817200081A5D8 /* campios2024UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C23BF2BD817200081A5D8 /* campios2024UITestsLaunchTests.swift */; };
 		330C23CF2BD82F330081A5D8 /* InputLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C23CE2BD82F330081A5D8 /* InputLoginView.swift */; };
 		330C23D12BD8406A0081A5D8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C23D02BD8406A0081A5D8 /* LoginViewModel.swift */; };
+		33F4759D2BD975BE00352C0A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F4759C2BD975BE00352C0A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		330C23BF2BD817200081A5D8 /* campios2024UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = campios2024UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		330C23CE2BD82F330081A5D8 /* InputLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLoginView.swift; sourceTree = "<group>"; };
 		330C23D02BD8406A0081A5D8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		33F4759C2BD975BE00352C0A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				330C23A82BD817200081A5D8 /* Preview Content */,
 				330C23CE2BD82F330081A5D8 /* InputLoginView.swift */,
 				330C23D02BD8406A0081A5D8 /* LoginViewModel.swift */,
+				33F4759C2BD975BE00352C0A /* HomeView.swift */,
 			);
 			path = campios2024;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				330C23D12BD8406A0081A5D8 /* LoginViewModel.swift in Sources */,
 				330C23A52BD8171F0081A5D8 /* LoginView.swift in Sources */,
 				330C23A32BD8171F0081A5D8 /* campios2024App.swift in Sources */,
+				33F4759D2BD975BE00352C0A /* HomeView.swift in Sources */,
 				330C23CF2BD82F330081A5D8 /* InputLoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

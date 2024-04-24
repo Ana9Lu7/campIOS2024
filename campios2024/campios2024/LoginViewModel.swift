@@ -11,6 +11,7 @@ class LoginViewModel: ObservableObject {
 
     @Published var username: String = ""
     @Published var password: String = ""
+    @Published var canContinue = false
 
     let loginRequestProtocol: LoginRequestProtocol
 
@@ -27,6 +28,9 @@ class LoginViewModel: ObservableObject {
     func enterButtonAction() {
         debugPrint(username)
         debugPrint(password)
+        DispatchQueue.main.async {
+            self.canContinue = true
+        }
     }
 }
 
