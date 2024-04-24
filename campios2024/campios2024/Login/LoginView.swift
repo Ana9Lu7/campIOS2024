@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-//struct LoginView: View {
-//
-//    @State private var navigate = false
-//
-//    var body: some View {
-//        NavigationStack {
-//            VStack {
-//                Button("Test Navigation") {
-//                    navigate = true
-//                }
-//                .navigationDestination(isPresented: $navigate) {
-//                    Text("Navigated")
-//                }
-//            }
-//        }
-//    }
-//}
-
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewModel()

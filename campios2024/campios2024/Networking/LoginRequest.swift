@@ -1,36 +1,11 @@
 //
-//  LoginViewModel.swift
+//  LoginRequest.swift
 //  campios2024
 //
-//  Created by Ana Luiza on 23/04/24.
+//  Created by Ana Luiza on 24/04/24.
 //
 
 import Foundation
-
-class LoginViewModel: ObservableObject {
-
-    @Published var username: String = ""
-    @Published var password: String = ""
-    @Published var canContinue = false
-
-    let loginRequestProtocol: LoginRequestProtocol
-
-    init(
-        username: String = "",
-        password: String = "",
-        loginRequestProtocol: LoginRequestProtocol = LoginRequest()
-    ) {
-        self.username = username
-        self.password = password
-        self.loginRequestProtocol = loginRequestProtocol
-    }
-
-    func enterButtonAction() {
-        debugPrint(username)
-        debugPrint(password)
-        loginRequestProtocol.login(username: username, password: password) { _ in }
-    }
-}
 
 public protocol LoginRequestProtocol {
 
@@ -71,19 +46,5 @@ public struct LoginRequest: LoginRequestProtocol {
         }
         .resume()
     }
-
 }
 
-public struct LoginResponse: Decodable {
-
-    let token: String
-
-    enum CodingKeys: String, CodingKey {
-        case token = "access_token"
-    }
-}
-
-public enum LoginError: Error {
-
-    case urlNotFound
-}
